@@ -1,7 +1,8 @@
 package model;
 
 import Estructuras.IngresoEgreso;
-import Estructuras.JsonObject;
+import Estructuras.JsonIngresosEgresos;
+import Vinculador.*;
 import com.google.gson.Gson;
 import spark.Request;
 import spark.Response;
@@ -12,8 +13,14 @@ public class Prueba {
     public String estaEntreFechas (Request req, Response resp){
         req.body();
         Gson g = new Gson();
-        JsonObject JO = g.fromJson(req.body(), JsonObject.class);
-        String jsonInString = g.toJson(JO);
+        JsonIngresosEgresos JO = g.fromJson(req.body(), JsonIngresosEgresos.class);
+
+        Vinculador vinculador = new Vinculador();
+        vinculador.cambiarCondicion(new PeriodoAceptibilidad());
+
+        JsonIngresosEgresos filtrado = vinculador.ejecutarVinculador(JO);
+
+        String jsonInString = g.toJson(filtrado);
         return jsonInString;
     }
 

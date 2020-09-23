@@ -1,22 +1,34 @@
 package Vinculador;
 
 
+import Estructuras.IngresoEgreso;
+import Estructuras.JsonIngresosEgresos;
 import org.json.JSONObject;
 
-public abstract class Vinculador {
+import java.util.ArrayList;
+
+public class Vinculador {
     CondicionVinculador condicion;
     CriterioVinculador criterio;
-    JSONObject ejecutarVinculador(JSONObject operacionesPorVincular)
-    {
-        JSONObject jEgresos = (JSONObject) operacionesPorVincular.get("Egresos");
-        JSONObject jIngresos = (JSONObject) operacionesPorVincular.get("Ingresos");
 
-        JSONObject response = new JSONObject();
+    public JsonIngresosEgresos ejecutarVinculador(JsonIngresosEgresos operacionesPorVincular)
+    {
+        ArrayList<IngresoEgreso> jEgresos = condicion.ejecutarCondicion(operacionesPorVincular.getEgresos());
+        ArrayList<IngresoEgreso>  jIngresos = condicion.ejecutarCondicion(operacionesPorVincular.getIngresos());
+
+
+
+        JsonIngresosEgresos response = new JsonIngresosEgresos();
+        response.setEgresos(jEgresos);
+        response.setIngresos(jEgresos);
 
         return response;
     }
-    void cambiarCriterio(CriterioVinculador unCriterio){
+    public void cambiarCriterio(CriterioVinculador unCriterio){
         this.criterio=unCriterio;
+    }
+    public void cambiarCondicion(CondicionVinculador unaCondicion){
+        this.condicion=unaCondicion;
     }
 
 }

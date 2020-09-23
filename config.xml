@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <General>
-    <fechaDesde>PLACEHOLDER</fechaDesde>
-    <fechaHasta>PLACEHOLDER</fechaHasta>
+    <fechaDesde>Thu Sep 10 08:21:00 UTC 2020</fechaDesde>
+    <fechaHasta>Thu Sep 24 08:21:00 UTC 2020</fechaHasta>
     <criterioVinculacion>PLACEHOLDER</criterioVinculacion>
     <condicionVinculacion>PLACEHOLDER</condicionVinculacion>
 </General>

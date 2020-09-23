@@ -40,7 +40,7 @@ public class Configuracion {
     }
 
     public void setCriterioVinculacion(String criterioVinculacion) {
-        this.criterioVinculacion = criterioVinculacion;
+        //this.criterioVinculacion = criterioVinculacion;
     }
 
     public CondicionVinculador getApiVinculador() {
@@ -48,7 +48,7 @@ public class Configuracion {
     }
 
     public void setCondicionVinculador(String condicionVinculador) {
-        this.condicionVinculador = condicionVinculador;
+        //this.condicionVinculador = condicionVinculador;
     }
 
     private Date fechaDesde;
