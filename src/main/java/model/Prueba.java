@@ -1,22 +1,20 @@
-package Server;
+package model;
 
 import Estructuras.IngresoEgreso;
-import java.util.ArrayList;
+import Estructuras.JsonObject;
+import com.google.gson.Gson;
+import spark.Request;
+import spark.Response;
+
 import java.util.List;
-import spark.Spark;
-import spark.debug.DebugScreen;
 
-public class Server {
-    public static void main(String[] args){
-        Spark.port(9000);
-        Router.init();
-        DebugScreen.enableDebugScreen();
-    }
-
-    public boolean estaEntreFechas(IngresoEgreso ingresoegreso) {
-        //en base a las del arch de configuracion
-        //return true/false
-        return true;
+public class Prueba {
+    public String estaEntreFechas (Request req, Response resp){
+        req.body();
+        Gson g = new Gson();
+        JsonObject JO = g.fromJson(req.body(), JsonObject.class);
+        String jsonInString = g.toJson(JO);
+        return jsonInString;
     }
 
     public void ordenarPorFecha( List<IngresoEgreso> ingresosegresos ) {
