@@ -3,7 +3,6 @@ package Vinculador;
 
 import Estructuras.IngresoEgreso;
 import Estructuras.JsonIngresosEgresos;
-import org.json.JSONObject;
 
 import java.util.ArrayList;
 
@@ -11,16 +10,14 @@ public class Vinculador {
     CondicionVinculador condicion;
     CriterioVinculador criterio;
 
-    public JsonIngresosEgresos ejecutarVinculador(JsonIngresosEgresos operacionesPorVincular)
+    public String ejecutarVinculador(JsonIngresosEgresos operacionesPorVincular)
     {
         ArrayList<IngresoEgreso> jEgresos = condicion.ejecutarCondicion(operacionesPorVincular.getEgresos());
         ArrayList<IngresoEgreso>  jIngresos = condicion.ejecutarCondicion(operacionesPorVincular.getIngresos());
 
-
-
-        JsonIngresosEgresos response = new JsonIngresosEgresos();
-        response.setEgresos(jEgresos);
-        response.setIngresos(jEgresos);
+        criterio.setEgresos(jEgresos);
+        criterio.setIngresos(jIngresos);
+        String response = criterio.ejecutarCriterio();
 
         return response;
     }

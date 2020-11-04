@@ -24,7 +24,7 @@ public class Configuracion {
     }
 
     public void setFechaDesde(String fechaDesde) throws ParseException {
-        this.fechaDesde = new SimpleDateFormat("MMM dd, yyyy hh:mm:ss aa").parse(fechaDesde);
+        this.fechaDesde = new SimpleDateFormat("yyyy-MM-dd").parse(fechaDesde);
     }
 
     public Date getFechaHasta() {
@@ -32,7 +32,7 @@ public class Configuracion {
     }
 
     public void setFechaHasta(String fechaHasta) throws ParseException {
-        this.fechaHasta = new SimpleDateFormat("MMM dd, yyyy hh:mm:ss aa").parse(fechaHasta);
+        this.fechaHasta = new SimpleDateFormat("yyyy-MM-dd").parse(fechaHasta);
     }
 
     public CriterioVinculador getCriterioVinculacion() {

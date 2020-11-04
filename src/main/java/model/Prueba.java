@@ -17,10 +17,11 @@ public class Prueba {
 
         Vinculador vinculador = new Vinculador();
         vinculador.cambiarCondicion(new PeriodoAceptibilidad());
+        vinculador.cambiarCriterio(new OrdenValorPrimerEgreso());
 
-        JsonIngresosEgresos filtrado = vinculador.ejecutarVinculador(JO);
+        String jsonInString =  vinculador.ejecutarVinculador(JO);
 
-        String jsonInString = g.toJson(filtrado);
+        System.out.println(jsonInString);
         return jsonInString;
     }
 

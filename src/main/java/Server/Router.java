@@ -25,7 +25,7 @@ public class Router {
 
     private static void configure(){
         Prueba unControllerDePrueba = new Prueba();
-        Spark.get("/api", (request, response) -> "holiiiis");
+        Spark.get("/api", (request, response) -> "<h1><center>Api en funcionamiento</center></h1>");
         Spark.post("/Prueba", unControllerDePrueba::estaEntreFechas);
     }
 }

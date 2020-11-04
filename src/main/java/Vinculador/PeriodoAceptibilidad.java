@@ -5,6 +5,7 @@ import Estructuras.IngresoEgreso;
 
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.stream.Collectors;
 
 public class PeriodoAceptibilidad implements CondicionVinculador{
     Date fechaDesde;
@@ -18,6 +19,13 @@ public class PeriodoAceptibilidad implements CondicionVinculador{
 
     @Override
     public ArrayList<IngresoEgreso> ejecutarCondicion(ArrayList<IngresoEgreso> arrayList) {
-        return (ArrayList<IngresoEgreso>) arrayList.stream().filter(ingresoEgreso -> (fechaDesde.compareTo(ingresoEgreso.getFecha()) * fechaHasta.compareTo(ingresoEgreso.getFecha()) >= 0));
+
+        ArrayList<IngresoEgreso> filtrado;
+        filtrado = (ArrayList<IngresoEgreso>) arrayList.
+                stream().
+                filter(
+                        ingresoEgreso -> (ingresoEgreso.getFecha().compareTo(fechaDesde) * ingresoEgreso.getFecha().compareTo(fechaHasta) <= 0)
+                ).collect(Collectors.toList());
+        return filtrado;
     }
 }
