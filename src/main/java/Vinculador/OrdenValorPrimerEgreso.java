@@ -34,10 +34,10 @@ public class OrdenValorPrimerEgreso implements CriterioVinculador {
     public String ejecutarCriterio() {
         this.ordenarPorValor(this.getEgresos());
         this.ordenarPorFecha(this.getIngresos());
-        return this.asignarEgrasosIngresos(this.getEgresos(),this.getIngresos());
+        return this.asignarEgresosIngresos(this.getEgresos(),this.getIngresos());
     }
 
-    private String asignarEgrasosIngresos(ArrayList<IngresoEgreso> egresos, ArrayList<IngresoEgreso> ingresos) {
+    private String asignarEgresosIngresos(ArrayList<IngresoEgreso> egresos, ArrayList<IngresoEgreso> ingresos) {
 
 
 
