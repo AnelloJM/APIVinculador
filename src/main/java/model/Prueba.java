@@ -17,7 +17,7 @@ public class Prueba {
 
         Vinculador vinculador = new Vinculador();
         vinculador.cambiarCondicion(new PeriodoAceptibilidad());
-        vinculador.cambiarCriterio(new Fecha());
+        vinculador.cambiarCriterio(new OrdenValorPrimerIngreso());
 
         String jsonInString =  vinculador.ejecutarVinculador(JO);
 
