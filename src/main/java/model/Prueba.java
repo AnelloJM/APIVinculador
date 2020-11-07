@@ -13,16 +13,22 @@ public class Prueba {
     public String estaEntreFechas (Request req, Response resp){
         req.body();
         Gson g = new Gson();
+        System.out.println(req.body());
         JsonIngresosEgresos JO = g.fromJson(req.body(), JsonIngresosEgresos.class);
 
         Vinculador vinculador = new Vinculador();
-        vinculador.cambiarCondicion(new PeriodoAceptibilidad());
-        vinculador.cambiarCriterio(new OrdenValorPrimerIngreso());
+        vinculador.cambiarCondicion(JO.getConfiguracion().getCondicionVinculador());
+        vinculador.cambiarCriterio(JO.getConfiguracion().getCriterioVinculacion());
 
         String jsonInString =  vinculador.ejecutarVinculador(JO);
 
         System.out.println(jsonInString);
-        return jsonInString;
+        String response="{\n" +
+                "\"Relaciones\":[\n";
+
+        response=response.concat(jsonInString);
+        response=response.concat("]\n}");
+        return response;
     }
 
     public void ordenarPorFecha( List<IngresoEgreso> ingresosegresos ) {

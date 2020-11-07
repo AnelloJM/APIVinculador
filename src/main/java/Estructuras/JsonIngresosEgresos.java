@@ -1,5 +1,7 @@
 package Estructuras;
 
+import Configuracion.Config;
+
 import java.util.ArrayList;
 
 public class JsonIngresosEgresos {
@@ -22,4 +24,19 @@ public class JsonIngresosEgresos {
     }
 
     public ArrayList<IngresoEgreso> Egresos;
+
+    public Config getConfiguracion() {return Configuracion;}
+
+    public void setConfiguracion(Config configuracion) {Configuracion = configuracion;}
+
+    public Config Configuracion;
+
+    @Override
+    public String toString() {
+        return "JsonIngresosEgresos{" +
+                "Ingresos=" + Ingresos +
+                ", Egresos=" + Egresos +
+                ", Configuracion=" + Configuracion +
+                '}';
+    }
 }

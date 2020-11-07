@@ -1,20 +1,19 @@
 package Vinculador;
 
-import Configuracion.Configuracion;
+import Configuracion.Config;
 import Estructuras.IngresoEgreso;
 
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.stream.Collectors;
 
-public class PeriodoAceptibilidad implements CondicionVinculador{
+public class PeriodoAceptabilidad implements CondicionVinculador{
     Date fechaDesde;
     Date fechaHasta;
 
-    public PeriodoAceptibilidad() {
-        Configuracion config = new Configuracion();
-        this.fechaDesde = config.getFechaDesde();
-        this.fechaHasta = config.getFechaHasta();
+    public PeriodoAceptabilidad(Date fecha_desde, Date fecha_hasta) {
+        this.fechaDesde = fecha_desde;
+        this.fechaHasta = fecha_hasta;
     }
 
     @Override
@@ -27,5 +26,13 @@ public class PeriodoAceptibilidad implements CondicionVinculador{
                         ingresoEgreso -> (ingresoEgreso.getFecha().compareTo(fechaDesde) * ingresoEgreso.getFecha().compareTo(fechaHasta) <= 0)
                 ).collect(Collectors.toList());
         return filtrado;
+    }
+
+    @Override
+    public String toString() {
+        return "PeriodoAceptabilidad{" +
+                "fechaDesde=" + fechaDesde +
+                ", fechaHasta=" + fechaHasta +
+                '}';
     }
 }

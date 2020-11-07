@@ -42,21 +42,14 @@ public class OrdenValorPrimerIngreso implements CriterioVinculador {
         egresos.forEach(egreso -> arrayDeRespuesta.add(this.asignar(ingresos,egreso)));
 
         int cantidadDeEgresos=egresos.size();
-        String response="{\n" +
-                "\"Relaciones\":[\n" +
-                "{\n";
+        String response="";
         for (int i = 0; i < cantidadDeEgresos; i++) {
             ArrayList<Integer> arrayDeIngresos = arrayDeRespuesta.get(i);
             String idEgreso = String.valueOf(egresos.get(i).getId());
             for (int j = 0; j < arrayDeIngresos.size(); j++) {
-                if (j>0){
-                    response=
-                            response
-                                    .concat("{\n");
-                }
                 response =
                         response
-                                .concat("\"IDIngreso\":")
+                                .concat("{\n\"IDIngreso\":")
                                 .concat(String.valueOf(arrayDeIngresos.get(j)))
                                 .concat(",\n")
                                 .concat("\"IDSEgresos\":[")
@@ -69,10 +62,9 @@ public class OrdenValorPrimerIngreso implements CriterioVinculador {
             if ( i < cantidadDeEgresos - 1 && !arrayDeIngresos.isEmpty() && !arrayDeRespuesta.get(i+1).isEmpty()){
                 response =
                         response
-                                .concat(",\n{\n");
+                                .concat(",\n");
             }
         }
-        response=response.concat("]\n}");
 
         return response;
     }

@@ -53,21 +53,14 @@ public class Fecha implements CriterioVinculador {
         ingresos.forEach(ingreso -> arrayDeRespuesta.add(this.asignar(egresos,ingreso)));
 
         int cantidadDeIngresos=ingresos.size();
-        String response="{\n" +
-                "\"Relaciones\":[\n" +
-                "{\n";
+        String response="";
         for (int i = 0; i < cantidadDeIngresos; i++) {
             ArrayList<Integer> respuesta = arrayDeRespuesta.get(i);
-            if (i>0){
-                response=
-                        response
-                                .concat("{\n");
-            }
 
             if (i < cantidadDeIngresos-1){
                 response=
                         response
-                                .concat("\"IDIngreso\":")
+                                .concat("{\n\"IDIngreso\":")
                                 .concat(String.valueOf(ingresos.get(i).getId()))
                                 .concat(",\n")
                                 .concat("\"IDSEgresos\":[")
@@ -76,7 +69,7 @@ public class Fecha implements CriterioVinculador {
             } else {
                 response=
                         response
-                                .concat("\"IDIngreso\":")
+                                .concat("{\n\"IDIngreso\":")
                                 .concat(String.valueOf(ingresos.get(i).getId()))
                                 .concat(",\n")
                                 .concat("\"IDSEgresos\":[")
@@ -84,7 +77,6 @@ public class Fecha implements CriterioVinculador {
                                 .concat("]\n}");
             }
         }
-        response=response.concat("]\n}");
 
         return response;
     }
