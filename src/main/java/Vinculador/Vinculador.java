@@ -5,6 +5,7 @@ import Estructuras.IngresoEgreso;
 import Estructuras.JsonIngresosEgresos;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class Vinculador {
     CondicionVinculador condicion;
@@ -17,6 +18,9 @@ public class Vinculador {
 
         criterio.setEgresos(jEgresos);
         criterio.setIngresos(jIngresos);
+        if(criterio instanceof Mix){
+            criterio.setCriteriosVinculados(operacionesPorVincular.getConfiguracion().getCriteriosDeMix());
+        }
         String response = criterio.ejecutarCriterio();
 
         return response;

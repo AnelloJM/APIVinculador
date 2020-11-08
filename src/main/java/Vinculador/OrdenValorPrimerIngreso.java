@@ -36,6 +36,11 @@ public class OrdenValorPrimerIngreso implements CriterioVinculador {
         return this.asignarEgresosIngresos(this.getEgresos(),this.getIngresos());
     }
 
+    @Override
+    public void setCriteriosVinculados(ArrayList<String> criteriosDeMix) {
+
+    }
+
     private String asignarEgresosIngresos(ArrayList<IngresoEgreso> egresos, ArrayList<IngresoEgreso> ingresos) {
 
         ArrayList<ArrayList<Integer>> arrayDeRespuesta = new ArrayList<ArrayList<Integer>>();

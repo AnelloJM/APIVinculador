@@ -23,4 +23,6 @@ public interface CriterioVinculador {
         }
     }
     String ejecutarCriterio();
+
+    void setCriteriosVinculados(ArrayList<String> criteriosDeMix);
 }

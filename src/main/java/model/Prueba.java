@@ -13,7 +13,6 @@ public class Prueba {
     public String estaEntreFechas (Request req, Response resp){
         req.body();
         Gson g = new Gson();
-        System.out.println(req.body());
         JsonIngresosEgresos JO = g.fromJson(req.body(), JsonIngresosEgresos.class);
 
         Vinculador vinculador = new Vinculador();
@@ -22,7 +21,6 @@ public class Prueba {
 
         String jsonInString =  vinculador.ejecutarVinculador(JO);
 
-        System.out.println(jsonInString);
         String response="{\n" +
                 "\"Relaciones\":[\n";
 

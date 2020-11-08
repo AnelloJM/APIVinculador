@@ -36,6 +36,11 @@ public class Fecha implements CriterioVinculador {
         return this.asignarEgresosIngresos(this.getEgresos(),this.getIngresos());
     }
 
+    @Override
+    public void setCriteriosVinculados(ArrayList<String> criteriosDeMix) {
+
+    }
+
     public void ordenarPorFecha( ArrayList<IngresoEgreso> ingresosegresos ) {
         Collections.sort(ingresosegresos,new Comparator<IngresoEgreso>() {
             public int compare(IngresoEgreso ingEgre1, IngresoEgreso ingEgre2) {

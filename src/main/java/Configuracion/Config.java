@@ -16,11 +16,9 @@ import java.util.Date;
 
 public class Config {
     public Config(Date fechaDesde, Date fechaHasta, String condicionVinculador, String criterioVinculacion) {
-        System.out.println("\n tratratra \n");
         this.fechaDesde = fechaDesde;
         this.fechaHasta = fechaHasta;
         this.criterioVinculacion = criterioVinculacion;
-
         this.setCondicionVinculador(condicionVinculador);
     }
 
