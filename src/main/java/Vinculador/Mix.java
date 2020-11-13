@@ -64,7 +64,6 @@ public class Mix implements CriterioVinculador {
         String response = criterio.ejecutarCriterio();
         if (contador.get() < size && !response.isEmpty())
         {
-            System.out.println(contador.toString().concat(" - ").concat(String.valueOf(size)));
             response = response.concat(",\n");
         }
         contador.set(contador.get() + 1);

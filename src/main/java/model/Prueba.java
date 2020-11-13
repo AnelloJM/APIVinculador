@@ -12,6 +12,7 @@ import java.util.List;
 public class Prueba {
     public String estaEntreFechas (Request req, Response resp){
         req.body();
+        System.out.println(req.body().toString());
         Gson g = new Gson();
         JsonIngresosEgresos JO = g.fromJson(req.body(), JsonIngresosEgresos.class);
 
