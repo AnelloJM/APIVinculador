@@ -1,6 +1,6 @@
 package Server;
 
-import model.Prueba;
+import model.ControllerVinculador;
 import spark.Spark;
 import spark.template.handlebars.HandlebarsTemplateEngine;
 import utils.BooleanHelper;
@@ -24,8 +24,8 @@ public class Router {
     }
 
     private static void configure(){
-        Prueba unControllerDePrueba = new Prueba();
-        Spark.get("/api", (request, response) -> "<h1><center>Api en funcionamiento</center></h1>");
-        Spark.post("/Prueba", unControllerDePrueba::estaEntreFechas);
+        ControllerVinculador unControllerDeVinculacion = new ControllerVinculador();
+        Spark.get("/api", (request, response) -> "<h1><center> Api en funcionamiento </center></h1>");
+        Spark.post("/vincular", unControllerDeVinculacion::estaEntreFechas);
     }
 }

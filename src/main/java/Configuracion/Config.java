@@ -47,7 +47,6 @@ public class Config {
     }
 
     public PeriodoAceptabilidad getCondicionVinculador() {
-        System.out.println(this.condicionVinculador);
         if(this.condicionVinculador.equals("PeriodoAceptabilidad")) {
             return new PeriodoAceptabilidad(this.fechaDesde, this.fechaHasta);
         } else{
