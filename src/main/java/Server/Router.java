@@ -25,7 +25,17 @@ public class Router {
 
     private static void configure(){
         ControllerVinculador unControllerDeVinculacion = new ControllerVinculador();
-        Spark.get("/api", (request, response) -> "<h1><center> Api en funcionamiento </center></h1>");
+        Spark.get("/", (request, response) -> "<h1><center> Api en funcionamiento </center></h1>");
         Spark.post("/vincular", unControllerDeVinculacion::estaEntreFechas);
     }
+
+    static int getHerokuAssignedPort() {
+        ProcessBuilder processBuilder = new ProcessBuilder();
+        if (processBuilder.environment().get("PORT") != null) {
+            return Integer.parseInt(processBuilder.environment().get("PORT"));
+        }
+
+        return 9000; //return default port if heroku-port isn't set (i.e. on localhost)
+    }
+
 }

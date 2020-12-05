@@ -6,9 +6,11 @@ import java.util.List;
 import spark.Spark;
 import spark.debug.DebugScreen;
 
+import static Server.Router.getHerokuAssignedPort;
+
 public class Server {
     public static void main(String[] args){
-        Spark.port(9001);
+        Spark.port(getHerokuAssignedPort());
         Router.init();
         DebugScreen.enableDebugScreen();
     }
