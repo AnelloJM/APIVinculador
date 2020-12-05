@@ -9,6 +9,10 @@ import spark.debug.DebugScreen;
 import static Server.Router.getHerokuAssignedPort;
 
 public class Server {
+    
+    public Server() {
+    }
+    
     public static void main(String[] args){
         Spark.port(getHerokuAssignedPort());
         Router.init();
